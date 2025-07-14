@@ -1,0 +1,237 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-container{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center;      /* Vertical center */
+  padding: 2rem;
+  background: linear-gradient(-45deg, #fceabb, #f8b500, #f8b500, #fceabb);
+  animation: gradientBG 15s ease infinite;
+  background-size: 400% 400%; 
+}
+
+.app {
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 500px;
+  min-height: 100vh;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(-45deg, #fceabb, #f8b500, #f8b500, #fceabb);
+  animation: gradientBG 15s ease infinite;
+  background-size: 400% 400%;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.app.dark-mode {
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+  color: #f0f0f0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: inherit;
+}
+
+h1.dark-mode {
+  color: #f0f0f0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+input[type="text"],
+select,
+input[type="date"] {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
+button.toggle-mode {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+button.toggle-mode:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #fff;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+li:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.completed-animation {
+  animation: fadeOut 0.6s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% { background-color: transparent; }
+  50% { background-color: #a8e6cf; } /* Greenish confetti color */
+  100% { background-color: transparent; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 1rem;
+}
+
+.task-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.task-tag {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.task-tag svg {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.General { background: #3498db; color: white; }
+.Work { background: #e67e22; color: white; }
+.Personal { background: #2ecc71; color: white; }
+.Urgent { background: #e74c3c; color: white; }
+
+.delete-btn {
+  background: #e74c3c;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  background: #ecf0f1;
+  color: #333;
+}
+
+.filter-buttons button:hover {
+  background: #d0d3d4;
+}
+
+.filter-buttons button.active-filter {
+  animation: pulse 0.8s ease infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  .app {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  input[type="text"], select, button, input[type="date"] {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
